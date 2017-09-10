@@ -1,7 +1,7 @@
 #include "planck.h"
 #include "action_layer.h"
-#include "eeconfig.h"
-#include "mousekey.h"
+// #include "eeconfig.h"
+// #include "mousekey.h"
 
 extern keymap_config_t keymap_config;
 
