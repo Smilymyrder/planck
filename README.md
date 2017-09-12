@@ -5,7 +5,7 @@ List of things to do:
   - Layouts
     - Qwerty
       - add functionkeys
-      - figure out waht to do with bottomright keys
+      - figure out waht to do with blank keys
       - figure out deadkeys
     - Num
       - figure out deadkeys
@@ -15,5 +15,8 @@ List of things to do:
     - Fn
       - make a functioning one
       - layout
+      Make a toggelable lock for this layer
+        maybe numl key
   - General
     - Sound
+    - Beautifyyyyyyyy

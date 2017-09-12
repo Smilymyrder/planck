@@ -11,7 +11,9 @@ extern keymap_config_t keymap_config;
 #define Pad    3  // numpad
 
 // Switching layers
-#define numl MO(Num) //momentary num layer
+#define qtyl  TO(Qwerty) // go to default layer - default
+#define numl  MO(Num)    //momentary num layer
+#define fn1   MO(Fn)     //momentary function layer
 
 // Fillers to make layering more clear
 #define ___     KC_TRNS
@@ -25,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |   ;  |  '   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |      |
+ * |  Fn  |  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | Num  |Enter |Space | Bspc |Shift |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -33,19 +35,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [Qwerty] = {
   { KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, ___},
   { KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT},
-  { ___, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, ___},
+  { fn1, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, ___},
   { KC_LCTRL, KC_LGUI, KC_LALT, numl, KC_ENT, KC_SPC, KC_BSPC, KC_LSFT, ___, ___, ___, ___}
 },
 
 /* Numbers
  * ,-----------------------------------------------------------------------------------.
- * |      |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   |      |
+ * | ___  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ___  | ___  | ___  | ___  | ___  | ___  | Del  | ___  | ___  | ___  | ___  | ___  |
+ * | ___  | ___  | ___  | Num  | ___  | ___  | Del  | ___  |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [Num] = {
@@ -57,23 +59,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function layer (toggle) Fn / use this for navigation to other layers
  * ,-----------------------------------------------------------------------------------.
- * | Play |  LM  |  Mu  |  RM  |MsWhU |      |      |      |      |      |      |      |
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Vol+ |  Ml  |  Md  |  Mr  |MsWhD |      |      |      |      |      |      |      |
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Prev | Next |  Up  |      | PgUp |      |      |      |      |      |      | padl |
+ * |  Fn  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Vol- | Left | Down |Right |PgDwn |      |      |      |      |      |      | ___ |
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [Fn] = {
-  { KC_MPLY,  KC_BTN1,  KC_MS_U,  KC_BTN2,  KC_WH_U, XXX, XXX, XXX, XXX, XXX, XXX, XXX },
-  { KC_VOLU,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D, XXX, XXX, XXX, XXX, XXX, XXX, XXX },
-  { KC_MPRV,  KC_MNXT,  KC_UP,    XXX,  KC_UP,   XXX, XXX, XXX, XXX, XXX, XXX, padl },
-  { KC_VOLD,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN, XXX, XXX, XXX, XXX, XXX, XXX, ___ }
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, ___, ___, ___, ___, ___, ___, ___, XXX, XXX, XXX, XXX}
 },
-
-
 
 /* Numpad
  * ,-----------------------------------------------------------------------------------.
