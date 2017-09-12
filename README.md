@@ -7,6 +7,7 @@ List of things to do:
       - add functionkeys
       - figure out waht to do with blank keys
       - figure out deadkeys
+      - æøå
     - Num
       - figure out deadkeys
       - what to add
@@ -16,7 +17,8 @@ List of things to do:
       - make a functioning one
       - layout
       Make a toggelable lock for this layer
-        maybe numl key
+      numpad on this layer?
   - General
     - Sound
-    - Beautifyyyyyyyy
+    - Beautify
+    - navigation to other layers (numl / fnl)?

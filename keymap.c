@@ -1,7 +1,7 @@
 #include "planck.h"
-#include "action_layer.h"
-// #include "eeconfig.h"
-// #include "mousekey.h"
+#include "action_layer.h"   // layers?
+// #include "eeconfig.h"       // audio i think
+#include "mousekey.h"       // enables mousekeys
 
 extern keymap_config_t keymap_config;
 
@@ -11,9 +11,13 @@ extern keymap_config_t keymap_config;
 #define Pad    3  // numpad
 
 // Switching layers
-#define qtyl  TO(Qwerty) // go to default layer - default
+#define qtyl  TO(Qwerty) // go to default layer - if needed
 #define numl  MO(Num)    //momentary num layer
-#define fn1   MO(Fn)     //momentary function layer
+// #define fn1   MO(Fn)     //momentary function layer
+
+// tap toggle fn layer
+#define fn1   TT(Fn)      // layer tap-toggle
+#define TAPPING_TOGGLE 2  //defines number of taps needed
 
 // Fillers to make layering more clear
 #define ___     KC_TRNS
@@ -23,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty layer / default
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |  Q   |  W   |  E   |  R   |  T   |  Y   |  U   |  I   |  O   |   P  |  [   |
+ * | Esc  |  Q   |  W   |  E   |  R   |  T   |  Y   |  U   |  I   |  O   |   P  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |   ;  |  '   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -59,20 +63,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function layer (toggle) Fn / use this for navigation to other layers
  * ,-----------------------------------------------------------------------------------.
- * | ___  |      |      |      |      |      |      |      |      |      |      |      |
+ * | ___  | MsB1 | MsU  | MsB2 |MsWhU |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ___  |      |      |      |      |      |      |      |      |      |      |      |
+ * | ___  | MsL  | MsD  | MsR  |MsWhD |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  Fn  |      |      |      |      |      |      |      |      |      |      |      |
+ * |  Fn  | Left |  Up  | Down | Rght |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ___  |      |      |      |      |      |      |      |      |      |      |      |
+ * | ___  | ___  | ___  |  x   | ___  | ___  | ___  | ___  |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [Fn] = {
-  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
-  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
-  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
-  { ___, ___, ___, ___, ___, ___, ___, ___, XXX, XXX, XXX, XXX}
+  { ___, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, KC_LEFT, KC_UP, KC_DOWN, KC_RGHT, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, ___, ___, XXX, ___, ___, ___, ___, XXX, XXX, XXX, XXX}
 },
 
 /* Numpad
