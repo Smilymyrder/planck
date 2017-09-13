@@ -22,3 +22,7 @@ List of things to do:
     - Sound
     - Beautify
     - navigation to other layers (numl / fnl)?
+
+Done
+  Audio
+    Startup sound

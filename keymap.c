@@ -1,7 +1,12 @@
 #include "planck.h"
 #include "action_layer.h"   // layers?
-// #include "eeconfig.h"       // audio i think
 #include "mousekey.h"       // enables mousekeys
+#include "eeconfig.h"       // audiostuff
+
+// includes audio z
+#ifdef AUDIO_ENABLE
+  #include "audio.h"
+#endif
 
 extern keymap_config_t keymap_config;
 
@@ -97,6 +102,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_KP_0, XXX, KC_LALT, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  workl }
 }
 };
+
+//audio - this sohuld make it so it plays a startup song
+#ifdef AUDIO_ENABLE
+float tone_startup[][2] = SONG(STARTUP_SONG);
+// float tone_fnlock[][2] = SONG(x);
+#endif
+
+// not sure what this whole block does
+void matrix_init_user(void) {
+  #ifdef AUDIO_ENABLE
+    startup_user();
+  #endif
+}
+#ifdef AUDIO_ENABLE
+  void startup_user() {
+    PLAY_SONG(tone_startup);
+}
+#endif
 
 // /* TEMPLATE
 //  * ,-----------------------------------------------------------------------------------.
