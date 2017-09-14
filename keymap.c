@@ -12,12 +12,16 @@ extern keymap_config_t keymap_config;
 
 #define Qwerty 0  // default layer
 #define Num    1  // numbers + arrowkeys (+ deadkeys?)
-#define Fn     2  // functions and navigation to other layers
-#define Pad    3  // numpad
+#define Fn     3  // functions and navigation to other layers
+
+#define Fkeys  2  // raised numberslayer for f-keys
+
+#define Pad    x  // numpad
 
 // Switching layers
 #define qtyl  TO(Qwerty) // go to default layer - if needed
 #define numl  MO(Num)    //momentary num layer
+#define fkyl   MO(Fkeys)  // momentary f-keys layer
 // #define fn1   MO(Fn)     //momentary function layer
 
 // tap toggle fn layer
@@ -50,23 +54,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numbers
  * ,-----------------------------------------------------------------------------------.
- * | ___  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   |      |
+ * | ___  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   |  =   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ___  | ___  | ___  | Num  | ___  | ___  | Del  | ___  |      |      |      |      |
+ * | ___  | ___  | ___  | Num  | ___  | ___  | Del  | ___  |Fkeys |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [Num] = {
-  { ___,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     XXX },
-  { ___,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX },
-  { ___,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX },
-  { ___,  XXX,  XXX,  ___,  ___,  ___,  KC_DEL,   ___,  XXX,  XXX,  XXX,  ___ }
+  { ___, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_EQL},
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, ___, ___, ___, ___, ___, KC_DEL, ___, fkyl, XXX, XXX, XXX}
 },
 
-/* Function layer (toggle) Fn / use this for navigation to other layers
+/* F-keys
+ * ,-----------------------------------------------------------------------------------.
+ * | ___  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  | F10  |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | ___  | F11  | F12  |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | ___  |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | ___  | ___  | ___  | ___  | ___  | ___  | ___  | ___  |Fkeys |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[Fkeys] = {
+  { ___, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, XXX},
+  { ___, KC_F11, KC_F12, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
+  { ___, ___, ___, ___, ___, ___, ___, ___, ___, XXX, XXX, XXX}
+},
+
+/* Function layer (toggle) Fn
  * ,-----------------------------------------------------------------------------------.
  * | ___  | MsB1 | MsU  | MsB2 |MsWhU |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
