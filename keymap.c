@@ -17,7 +17,7 @@ extern keymap_config_t keymap_config;
 
 #define Fkeys  3  // raised numberslayer for f-keys
 
-#define Pad    x  // numpad
+#define Pad    5  // numpad
 
 // Switching layers
 #define qtyl  TO(Qwerty) // go to default layer - if needed
@@ -28,7 +28,6 @@ extern keymap_config_t keymap_config;
 
 // tap toggle fn layer
 #define funl   TT(Fn)      // layer tap-toggle
-#define TAPPING_TOGGLE 2  //defines number of taps needed
 
 // Fillers to make layering more clear
 #define ___     KC_TRNS
@@ -142,27 +141,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_KP_7, KC_KP_8, KC_KP_9, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  KC_LOCKING_NUM },
   { KC_KP_4, KC_KP_5, KC_KP_6, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX },
   { KC_KP_1, KC_KP_2, KC_KP_3, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX },
-  { KC_KP_0, XXX, KC_LALT, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  workl }
+  { KC_KP_0, XXX, KC_LALT, XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  XXX,  wrkl }
 }
 };
 
 //audio - this sohuld make it so it plays a startup song
-#ifdef AUDIO_ENABLE
-float tone_startup[][2] = SONG(STARTUP_SONG);
-// float tone_fnlock[][2] = SONG(x);
-#endif
+// #ifdef AUDIO_ENABLE
+// float tone_startup[][2] = SONG(STARTUP_SONG);
+// // float tone_fnlock[][2] = SONG(x);
+// #endif
 
 // not sure what this whole block does
-void matrix_init_user(void) {
-  #ifdef AUDIO_ENABLE
-    startup_user();
-  #endif
-}
-#ifdef AUDIO_ENABLE
-  void startup_user() {
-    PLAY_SONG(tone_startup);
-}
-#endif
+// void matrix_init_user(void) {
+//   #ifdef AUDIO_ENABLE
+//     startup_user();
+//   #endif
+// }
+// #ifdef AUDIO_ENABLE
+//   void startup_user() {
+//     PLAY_SONG(tone_startup);
+// }
+// #endif
 
 // /* TEMPLATE
 //  * ,-----------------------------------------------------------------------------------.
