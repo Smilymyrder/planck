@@ -3,21 +3,16 @@
 List of things to do:
   - Make a fleshed out list
   - Layouts
-    - Qwerty
-      - add functionkeys
-      - figure out what to do with blank keys
-      - æøå
-    - Num
-      æøå
-      momentary layer
-      figur ouy brackets and  c u r l y b o y s
+    - work
+      - figure out what to do with blank key
     - Fn
-      - make a functioning one
+      mousekeys
       - layout
-      Make a toggelable lock for this layer
+      fix toggle lock
       numpad on this layer?
       mediakeys
   - General
     - Sound
     - Beautify
     - navigation to other layers (numl / fnl)?
+    space cadet shift

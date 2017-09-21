@@ -59,16 +59,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Tab  |   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |  Fn  |   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  |      |
+ * |LShift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  | Num  |Enter |Space | Bspc |Shift |  [   |  ]   |  -   |  =   |
+ * | Ctrl | GUI  | Alt  | Num  |  Fn  |Space | Bspc |Enter |  [   |  ]   |  -   |  =   |
  * `-----------------------------------------------------------------------------------'
  */
 [Work] = {
   { KC_ESC, KC_Q, KC_D, KC_R, KC_W, KC_B, KC_J, KC_F, KC_U, KC_P, KC_SCLN, KC_BSLASH},
   { KC_TAB, KC_A, KC_S, KC_H, KC_T, KC_G, KC_Y, KC_N, KC_E, KC_O, KC_I, KC_QUOT},
-  { funl, KC_Z, KC_X, KC_M, KC_C, KC_V, KC_K, KC_L, KC_COMM, KC_DOT, KC_SLSH, ___},
-  { KC_LCTL, KC_LGUI, KC_LALT, numl, KC_ENT, KC_SPC, KC_BSPC, KC_LSFT, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL}
+  { KC_LSFT, KC_Z, KC_X, KC_M, KC_C, KC_V, KC_K, KC_L, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT},
+  { KC_LCTL, KC_LGUI, KC_LALT, numl, KC_ENT, KC_SPC, KC_BSPC, funl, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL}
 },
 
 
@@ -86,8 +86,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [Num] = {
   { ___, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_EQL},
   { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
-  { fkyl, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX},
-  { ___, ___, ___, ___, ___, ___, KC_DEL, ___, ___, ___, ___, ___}
+  { ___, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX, ___},
+  { ___, ___, ___, ___, fkyl, ___, KC_DEL, ___, ___, ___, ___, ___}
 },
 
 /* F-keys
