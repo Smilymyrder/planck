@@ -3,7 +3,7 @@
 #include "mousekey.h"       // enables mousekeys
 #include "eeconfig.h"       // audiostuff
 
-// includes audio z
+// includes audio
 #ifdef AUDIO_ENABLE
   #include "audio.h"
 #endif
@@ -13,6 +13,7 @@ extern keymap_config_t keymap_config;
 #define Qwerty 0  // default layer
 #define Work   1  // workworkworkworkwork
 #define Num    2  // numbers + arrowkeys (+ deadkeys?)
+
 #define Fn     4  // functions and navigation to other layers
 
 #define Fkeys  3  // raised numberslayer for f-keys
@@ -146,10 +147,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 //audio - this sohuld make it so it plays a startup song
-// #ifdef AUDIO_ENABLE
-// float tone_startup[][2] = SONG(STARTUP_SONG);
-// // float tone_fnlock[][2] = SONG(x);
-// #endif
+#ifdef AUDIO_ENABLE
+  float tone_startup[][2] = SONG(STARTUP_SOUND);
+  float tone_Work[][2] = SONG(PLANCK_SOUND);
+#endif
 
 // not sure what this whole block does
 // void matrix_init_user(void) {
